@@ -1,7 +1,6 @@
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
-const qrcode = require('qrcode-terminal');
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
@@ -50,7 +49,6 @@ function getNewToken(oAuth2Client, callback) {
     scope: SCOPES,
   });
   console.log('Authorize this app by visiting this url:', authUrl);
-  console.log(qrcode.generate(authUrl, {small: true}));
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
